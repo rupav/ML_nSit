@@ -1,0 +1,27 @@
+#Python Script
+
+import urllib.request
+import json
+from textblob import TextBlob
+import tweepy
+
+consumer_key = "cosumer_key"
+consumer_secret = "consumer_key_secret"
+
+
+access_token = "access_token"
+access_secret = "access_key_secret"
+
+auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
+auth.set_access_token(access_token, access_secret)
+
+api = tweepy.API(auth)
+
+public_tweets = api.search('President',lang='en',geocode="20.5937,78.9629,10000mi",count = 100)   #count for 100 tweets per request, geocode used for location specific, currently INDIA
+print(len(public_tweets))
+print(type(public_tweets))
+
+for i in range(len(public_tweets)):
+	print(public_tweets[i].text)
+	print(len(public_tweets[i].text))
+	print("\n------")
