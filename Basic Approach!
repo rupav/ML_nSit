@@ -17,7 +17,12 @@ auth.set_access_token(access_token, access_secret)
 
 api = tweepy.API(auth)
 
-public_tweets = api.search('President',lang='en',geocode="20.5937,78.9629,10000mi",count = 100)   #count for 100 tweets per request, geocode used for location specific, currently INDIA
+places = api.geo_search(query = "India", granularity = "country")
+places_id = places[0].id
+
+query = "GET {}&place:{}".format(trend, places_id)
+
+public_tweets = api.search(query,lang = 'en' , count = 100)   #count for 100 tweets per request, geocode used for location specific, currently INDIA
 print(len(public_tweets))
 print(type(public_tweets))
 
