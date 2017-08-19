@@ -53,3 +53,10 @@ for i in range(len(public_tweets)):
 	print(len(public_tweets[i].text))
 	print("\n------")
 '''
+
+'''
+SentiWordNet can be used.
+WordNet for creation of training Data, then using a classifier to predict!
+it might take time.
+We will add other tweets into existing training dataset!
+'''
